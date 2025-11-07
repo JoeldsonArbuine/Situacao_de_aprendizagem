@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"> 
+    <title>Login GreenTech</title>
+</head>
+<body>
+    <div class="container">
+        <form action="login.php" method="POST">
+            <h1>Login GreenTech</h1>
+
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Email" class="gmail-senha" required>
+                <i class="bx bx-envelope"></i>
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="senha" placeholder="Senha" class="gmail-senha" required>
+                <i class="bx bx-lock-alt"></i>
+            </div>
+
+            <div class="lembrar">
+                <label>
+                <input type="checkbox">Lembrar de mim
+                </label>
+                <a href="esqueci_senha.html">Esqueci a senha?</a>
+            </div>
+
+            <button type="submit" class="login" id="btnlogar">Entrar</button>
+
+            <div class="registro">
+                <p>Não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+            </div>
+        </form>
+    </div>
+    </body>
+</html>

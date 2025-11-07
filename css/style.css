@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* --- Reset Básico --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* --- Estilo do Corpo --- */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0fdf4; /* Um verde bem suave e claro */
+    color: #333; /* Cor principal do texto */
+    padding-bottom: 70px; /* Espaço para o menu bar fixo */
+}
+
+/* --- Container Principal (Login/Cadastro/etc) --- */
+.container {
+    width: 420px;
+    background-color: #fff; /* Fundo branco sólido */
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    color: #000;
+    padding: 30px 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+    backdrop-filter: none;
+}
+.container h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #4CAF50; /* Destaque verde no título */
+}
+
+/* --- Inputs e Caixas --- */
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.gmail-senha {
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f7; /* Fundo levemente cinza */
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 16px;
+    color: #333; /* Texto do input preto/escuro para legibilidade */
+    padding: 0 45px 0 20px;
+    border-radius: 40px;
+}
+.gmail-senha::placeholder {
+    color: #999; /* Placeholder mais claro */
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #4CAF50; /* Ícones em verde */
+}
+
+/* --- Seção Lembrar e Senha --- */
+.lembrar {
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.lembrar label input {
+    accent-color: #4CAF50; /* Cor do checkbox em verde */
+    margin-right: 5px;
+}
+.lembrar a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: 500;
+}
+.lembrar a:hover {
+    text-decoration: underline;
+}
+
+/* --- Botão Login/Cadastrar/Ação --- */
+.login {
+    width: 100%;
+    height: 50px;
+    background-color: #4CAF50; /* Botão principal em verde */
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
+}
+.login:hover {
+    background-color: transparent;
+    color: #4CAF50;
+    font-size: 16px; /* Tamanho da fonte normalizado */
+    border: 2px solid #4CAF50;
+}
+
+/* --- Seção Registro --- */
+.registro {
+    font-size: 14px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+.registro a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: 600;
+}
+.registro a:hover {
+    text-decoration: underline;
+}
+
+
+/* --- Estilos para o Toast (Notificação Temporária) --- */
+.toast-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+.toast-message.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+.toast-success {
+    background-color: #4CAF50;
+    border: 1px solid #3d8c40;
+}
+.toast-error {
+    background-color: #dc3545;
+    border: 1px solid #bd2130;
+}
+
+
+/* --- Menu Inferior (Navigation Bar) --- */
+.navigation-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 600px;
+    height: 60px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navigation-bar .nav-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    z-index: 1;
+    transition: color 0.3s ease;
+    padding-top: 5px;
+    text-decoration: none; /* Adicionado para garantir */
+    color: #666;
+    flex: 1;
+    font-size: 10px;
+}
+
+.navigation-bar .nav-item i {
+    font-size: 24px;
+    margin-bottom: 0px; 
+}
+.navigation-bar .nav-item span {
+    display: block;
+    font-size: 11px;
+}
+
+/* NOVO CSS: Efeito Bolinha Ativa */
+.navigation-bar .nav-item::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 6px;
+    height: 6px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.navigation-bar .nav-item.active {
+    color: #4CAF50;
+    font-weight: 600;
+}
+
+.navigation-bar .nav-item.active::before {
+    transform: translateX(-50%) scale(1);
+}
+
+.navigation-bar .nav-item:hover {
+    color: #4CAF50; 
+}
+.navigation-bar .nav-item:hover::before {
+    transform: translateX(-50%) scale(0.6);
+}
+
+
+/* ========================================= */
+/* --- MENU HAMBÚRGUER (MOBILE FIRST) --- */
+/* ========================================= */
+
+/* 1. Ocultar o Botão Hambúrguer por padrão em telas grandes */
+#menu-toggle, .hamburger-menu {
+    display: none; 
+}
+
+/* 2. Ocultar o menu lateral por padrão */
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Esconde o menu para a esquerda */
+    width: 280px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    z-index: 1100; /* Acima de tudo */
+}
+
+/* 3. Estilos do Menu Lateral (Sidebar) */
+.sidebar-menu.open {
+    left: 0; /* Move o menu para a tela */
+}
+
+.sidebar-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.sidebar-header .close-btn {
+    cursor: pointer;
+    font-size: 2em;
+    color: white;
+    transition: color 0.3s;
+}
+.sidebar-header .close-btn:hover {
+    color: #ddd;
+}
+.sidebar-header .logo-text {
+    font-size: 1.5em;
+    font-family: 'Bebas Neue', sans-serif; /* Se quiser uma fonte impactante */
+}
+
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-list a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1em;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s, color 0.2s;
+}
+.sidebar-list a:hover, .sidebar-list a.active {
+    background-color: #f0fdf4;
+    color: #4CAF50;
+    border-left: 5px solid #4CAF50;
+    padding-left: 15px; /* Ajuste para o padding lateral */
+}
+
+/* Overlay Escuro */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    display: none;
+}
+.overlay.visible {
+    display: block;
+}
+
+/* ========================================= */
+/* --- MEDIA QUERY (APLICAR NO MOBILE) --- */
+/* ========================================= */
+
+@media (max-width: 768px) {
+    
+    /* Mostrar o botão hambúrguer */
+    .hamburger-menu {
+        display: block;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1100;
+        cursor: pointer;
+        font-size: 30px;
+        color: #4CAF50; /* Cor do ícone */
+        background-color: #fff;
+        padding: 5px 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border: 1px solid #eee;
+    }
+
+    /* Ocultar o menu inferior em telas pequenas */
+    .navigation-bar {
+        display: none;
+    }
+    
+    /* Ajustar o padding do corpo para não haver barra inferior */
+    body {
+        padding-bottom: 20px;
+        padding-top: 55px; /* Dá espaço para o botão hambúrguer no topo */
+    }
+    
+    /* Ajuste para Login/Cadastro (se estiverem centralizados no body) */
+    .container {
+        margin: 20px auto;
+    }
+}
